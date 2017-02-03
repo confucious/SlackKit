@@ -324,7 +324,7 @@ internal extension SlackClient {
     
     //MARK: - Reactions
     func addedReaction(_ event: Event) {
-        guard let item = event.item, let type = item.type, let reaction = event.reaction, let userID = event.user?.id, let itemUser = event.itemUser else {
+        guard let item = event.item, let user = event.user, let type = item.type, let reaction = event.reaction, let userID = event.user?.id, let itemUser = event.itemUser else {
             return
         }
         
@@ -348,7 +348,7 @@ internal extension SlackClient {
             break
         }
         
-        reactionEventsDelegate?.added(reaction, item: item, itemUser: itemUser, client: self)
+        reactionEventsDelegate?.added(reaction, user: user, item: item, itemUser: itemUser, client: self)
     }
     
     func removedReaction(_ event: Event) {
@@ -376,7 +376,7 @@ internal extension SlackClient {
             break
         }
         
-        reactionEventsDelegate?.removed(key, item: item, itemUser: itemUser, client: self)
+        reactionEventsDelegate?.removed(key, user: user, item: item, itemUser: itemUser, client: self)
     }
     
     //MARK: - Preferences

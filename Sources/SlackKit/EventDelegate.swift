@@ -74,8 +74,8 @@ public protocol StarEventsDelegate: class {
 }
 
 public protocol ReactionEventsDelegate: class {
-    func added(_ reaction: String, item: Item, itemUser: String, client: SlackClient)
-    func removed(_ reaction: String, item: Item, itemUser: String, client: SlackClient)
+    func added(_ reaction: String, user: User, item: Item, itemUser: String, client: SlackClient)
+    func removed(_ reaction: String, user: User, item: Item, itemUser: String, client: SlackClient)
 }
 
 public protocol SlackEventsDelegate: class {
